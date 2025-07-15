@@ -1,76 +1,26 @@
-# Docker para Laravel 11 e Angular 17
+# 🧪 Teste Técnico — Refatoração Fullstack (Angular + PHP)
 
-Este projeto configura um ambiente Docker com Laravel 11 no backend, Angular 17 no frontend, PHP 8.3, Composer e Yarn.
 
-## Estrutura do Projeto
+Bem-vindo(a) ao teste técnico!  
+Este repositório contém um projeto propositalmente **mal estruturado** e com diversas **más práticas** tanto no **frontend (Angular)** quanto no **backend (PHP)**.
 
-```
-laravel-angular-docker/
-├── backend/              # Aplicação Laravel
-│   └── Dockerfile        # Configuração Docker para Laravel
-├── frontend/             # Aplicação Angular
-│   ├── Dockerfile        # Configuração Docker para Angular
-│   └── init-angular.sh   # Script de inicialização do Angular
-├── docker-compose.yml    # Configuração dos serviços Docker
-└── README.md             # Este arquivo
-```
+O objetivo deste teste **não é entregar uma feature nova**, mas sim **refatorar o projeto existente**, identificando e corrigindo problemas de estrutura, organização, legibilidade e boas práticas.
 
-## Requisitos
+---
 
-- Docker
-- Docker Compose
+## 🎯 Objetivo
 
-## Como Usar
+Avaliar sua capacidade de:
 
-1. Clone este repositório
-2. Execute o comando para construir e iniciar os contêineres:
+- Identificar más práticas e problemas técnicos em projetos existentes
+- Refatorar código front e back para melhorar **qualidade, legibilidade, manutenibilidade e boas práticas**
+- Separar responsabilidades, aplicar arquitetura mais limpa e moderna
+- Garantir que a aplicação continue funcionando após as melhorias
+- Escrever código de forma clara, coesa e consistente
 
-```bash
-docker-compose up -d
-```
+📬 Instruções de Entrega
+Faça um fork deste repositório para sua conta do GitHub.
 
-3. Acesse as aplicações:
-   - Laravel: http://localhost:8000
-   - Angular: http://localhost:4200
+Realize todas as alterações no seu fork.
 
-## Serviços Disponíveis
-
-- **backend**: Servidor Laravel 11 com PHP 8.3
-- **frontend**: Servidor Angular 17
-- **db**: Banco de dados MySQL 8.0
-
-## Banco de Dados
-
-- **Host**: localhost
-- **Porta**: 3306
-- **Nome do banco**: laravel
-- **Usuário**: laravel
-- **Senha**: secret
-
-## Comandos Úteis
-
-### Laravel (Backend)
-
-```bash
-# Acessar o contêiner Laravel
-docker-compose exec backend bash
-
-# Executar migrações
-docker-compose exec backend php artisan migrate
-
-# Criar um controller
-docker-compose exec backend php artisan make:controller NomeController
-```
-
-### Angular (Frontend)
-
-```bash
-# Acessar o contêiner Angular
-docker-compose exec frontend sh
-
-# Gerar um componente
-docker-compose exec frontend ng generate component nome-componente
-
-# Gerar um serviço
-docker-compose exec frontend ng generate service nome-servico
-```
+Após concluir o teste, envie o link do seu repositório para a equipe técnica responsável pela avaliação. 
