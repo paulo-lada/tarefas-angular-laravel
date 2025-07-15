@@ -1,17 +1,14 @@
-FROM node:20-alpine
+FROM node:20
 
-# Instalar dependências globais
-RUN npm install -g @angular/cli@17
-
-# Configurar diretório de trabalho
 WORKDIR /app
 
-# Copiar o script de inicialização
-COPY init-angular.sh /app/init-angular.sh
-RUN chmod +x /app/init-angular.sh
+COPY package*.json ./
+RUN npm install
 
-# Expor porta 4200
+COPY . .
+
 EXPOSE 4200
 
-# Iniciar script de inicialização
-CMD ["/app/init-angular.sh"]
+ENV NG_CLI_ANALYTICS false
+
+CMD ["npm", "run", "start", "--", "--host=0.0.0.0"]
