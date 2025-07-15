@@ -1,57 +1,25 @@
 version: '3.8'
 
 services:
-  # Serviço para o backend Laravel
-  backend:
+  laravel:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: laravel-app
-    restart: unless-stopped
     volumes:
-      - ./backend:/var/www/html
+      - ./backend:/var/www
     ports:
       - "8000:8000"
-    networks:
-      - app-network
-    depends_on:
-      - db
+    working_dir: /var/www
+    command: php artisan serve --host=0.0.0.0 --port=8000
 
-  # Serviço para o frontend Angular
-  frontend:
+  angular:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    container_name: angular-app
-    restart: unless-stopped
     volumes:
       - ./frontend:/app
-      - /app/node_modules
     ports:
-      - "4200:4200"
-    networks:
-      - app-network
-
-  # Serviço para o banco de dados MySQL
-  db:
-    image: mysql:8.0
-    container_name: mysql-db
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: secret
-      MYSQL_USER: laravel
-    volumes:
-      - dbdata:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
-
-volumes:
-  dbdata:
+      - "4200:4200" # <-- necessário
+    command: npm run start -- --host=0.0.0.0
+    stdin_open: true
+    tty: true
