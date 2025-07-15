@@ -19,7 +19,7 @@ services:
     volumes:
       - ./frontend:/app
     ports:
-      - "4200:4200" # <-- necessário
+      - "4200:4200"
     command: npm run start -- --host=0.0.0.0
     stdin_open: true
     tty: true
