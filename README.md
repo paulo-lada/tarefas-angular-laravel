@@ -19,8 +19,7 @@ Avaliar sua capacidade de:
 - Escrever código de forma clara, coesa e consistente
 
 📬 Instruções de Entrega
-Faça um fork deste repositório para sua conta do GitHub.
-
-Realize todas as alterações no seu fork.
-
-Após concluir o teste, envie o link do seu repositório para a equipe técnica responsável pela avaliação. 
+- Crie um novo respositório utilizando este como template;
+  <img width="1285" height="242" alt="image" src="https://github.com/user-attachments/assets/093203bc-88d3-4806-b688-877369d0bfec" />
+- Clone o seu repositório gerado do template;
+- Após concluir o teste, envie o link do seu repositório para a equipe técnica responsável pela avaliação
