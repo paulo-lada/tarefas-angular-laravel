@@ -17,6 +17,7 @@ Avaliar sua capacidade de:
 - Separar responsabilidades, aplicar arquitetura mais limpa e moderna
 - Garantir que a aplicação continue funcionando após as melhorias
 - Escrever código de forma clara, coesa e consistente
+- Garantir responsividade.
 
 📬 Instruções de Entrega
 - Crie um novo respositório utilizando este como template;
