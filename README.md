@@ -88,7 +88,7 @@ Execute os testes com:
 php artisan test
 ```
 
-Certifique-se de que o banco de dados de testes esteja configurado corretamente no `.env.testing`.
+Certifique-se de que o banco de dados de testes esteja configurado corretamente no `.env`.
 
 Os testes cobrem as seguintes rotas:
 
