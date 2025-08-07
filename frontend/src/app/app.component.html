@@ -21,9 +21,15 @@
           {{ todo.title }}
         </span>
 
-        <button (click)="removeTodo(todo.id)">
-          Remover
-        </button>
+        <div class="todo-actions">
+          <button (click)="toggleTodoCompletion(todo)" [ngClass]="{'complete-button': !todo.completed}">
+            {{ todo.completed ? 'Desmarcar' : 'Concluir' }}
+          </button>
+
+          <button (click)="removeTodo(todo.id)">
+            Remover
+          </button>
+        </div>
       </li>
     </ul>
   </div>

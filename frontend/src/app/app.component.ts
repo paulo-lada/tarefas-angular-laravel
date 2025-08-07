@@ -57,11 +57,23 @@ export class AppComponent implements OnInit {
     }
   }
 
+  async toggleTodoCompletion(todo: Todo) {
+    try {
+      await this.todoService.toggleTodoCompletion(todo.id, !todo.completed);
+
+      await this.loadTodoList();
+
+      this.messageHandler.handleSuccess('Tarefa atualizada com sucesso!');
+    } catch (error) {
+      this.messageHandler.handleError('Erro ao atualizar tarefa. Tente novamente mais tarde.', error);
+    }
+  }
+
   async removeTodo(id: number) {
     try {
       await this.todoService.removeTodo(id);
 
-      this.todoList = this.todoList.filter(todo => todo.id !== id);
+      await this.loadTodoList();
 
       this.messageHandler.handleSuccess('Tarefa removida com sucesso!');
     } catch (error) {

@@ -24,6 +24,12 @@ export class TodoService {
         return firstValueFrom(httpObservable);
     }
 
+    public async toggleTodoCompletion(id: number, completed: boolean): Promise<Todo> {
+        const httpObservable = this.http.put<Todo>(`${API_URL}${this.endpoint}/${id}`, { completed });
+
+        return firstValueFrom(httpObservable);
+    }
+
     public async removeTodo(id: number): Promise<void> {
         const httpObservable = this.http.delete<void>(`${API_URL}${this.endpoint}/${id}`);
 

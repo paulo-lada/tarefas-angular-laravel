@@ -40,9 +40,9 @@ composer install
 
 # Criar arquivo .env
 copy .env.example .env
-# ou crie manualmente com o conteúdo:
-# DB_CONNECTION=sqlite
-# DB_DATABASE=storage/database.sqlite
+
+# Gerar APP Key
+php artisan key:generate
 
 # Criar banco SQLite
 mkdir storage
@@ -78,6 +78,44 @@ ng serve
 
 ---
 
+## 🧪 Testes
+
+### Backend (Laravel)
+
+Execute os testes com:
+
+```bash
+php artisan test
+```
+
+Certifique-se de que o banco de dados de testes esteja configurado corretamente no `.env.testing`.
+
+Os testes cobrem as seguintes rotas:
+
+- `GET /api/tarefas`
+- `POST /api/tarefas`
+- `PUT /api/tarefas/{id}`
+- `DELETE /api/tarefas/{id}`
+
+### Frontend (Angular)
+
+Execute os testes com:
+
+```bash
+ng test
+```
+
+As chamadas HTTP são testadas com mocks utilizando `HttpClientTestingModule` ou `provideHttpClientTesting()` para Angular 17+.
+
+As funções testadas incluem:
+
+- `getTodoList()`
+- `addTodo()`
+- `updateTodo()`
+- `removeTodo()`
+
+---
+
 ## 🔗 Comunicação Front ↔ Back
 
 - O Angular faz requisições para `http://localhost:8000/api/tarefas`
@@ -87,8 +125,9 @@ ng serve
 
 ## 📡 API Endpoints
 
-| Método | Rota                     | Descrição               |
-|--------|--------------------------|-------------------------|
-| GET    | `/api/tarefas`           | Listar tarefas          |
-| POST   | `/api/tarefas`           | Criar nova tarefa       |
-| DELETE | `/api/tarefas/{id}`      | Deletar tarefa por ID   |
+| Método | Rota                     | Descrição                   |
+|--------|--------------------------|-----------------------------|
+| GET    | `/api/tarefas`           | Listar tarefas              |
+| POST   | `/api/tarefas`           | Criar nova tarefa           |
+| UPDATE | `/api/tarefas/{id}`      | Alterar conclusão da tarefa |
+| DELETE | `/api/tarefas/{id}`      | Deletar tarefa por ID       |

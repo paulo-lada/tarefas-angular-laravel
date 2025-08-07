@@ -21,6 +21,14 @@ class TarefaController extends Controller
 
         return response()->json($tarefa, 201);
     }
+
+    public function update(Request $request, $id)
+    {
+        $tarefa = Tarefa::findOrFail($id);
+        $tarefa->update($request->only(['title', 'completed']));
+
+        return response()->json($tarefa);
+    }
     public function destroy($id)
     {
         $tarefa = Tarefa::findOrFail($id);
