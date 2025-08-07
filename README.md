@@ -1,26 +1,94 @@
-# 🧪 Teste Técnico — Refatoração Fullstack (Angular + PHP)
+# ✅ Projeto Angular + Laravel
 
+Aplicação fullstack para gerenciamento de tarefas, construída com:
 
-Bem-vindo(a) ao teste técnico!  
-Este repositório contém um projeto propositalmente **mal estruturado** e com diversas **más práticas** tanto no **frontend (Angular)** quanto no **backend (PHP)**.
-
-O objetivo deste teste **não é entregar uma feature nova**, mas sim **refatorar o projeto existente**, identificando e corrigindo problemas de estrutura, organização, legibilidade e boas práticas.
+- 🎨 **Frontend**: Angular
+- ⚙️ **Backend**: Laravel 11 + SQLite
+- 🔁 Integração via REST API com CORS configurado
 
 ---
 
-## 🎯 Objetivo
+## 📁 Estrutura do Projeto
 
-Avaliar sua capacidade de:
+```
+starian-checklist/
+├── backend/       # Laravel
+└── frontend/      # Angular
+```
 
-- Identificar más práticas e problemas técnicos em projetos existentes
-- Refatorar código front e back para melhorar **qualidade, legibilidade, manutenibilidade e boas práticas**
-- Separar responsabilidades, aplicar arquitetura mais limpa e moderna
-- Garantir que a aplicação continue funcionando após as melhorias
-- Escrever código de forma clara, coesa e consistente
-- Garantir responsividade.
+---
 
-📬 Instruções de Entrega
-- Crie um novo respositório utilizando este como template;
-  <img width="1285" height="242" alt="image" src="https://github.com/user-attachments/assets/093203bc-88d3-4806-b688-877369d0bfec" />
-- Clone o seu repositório gerado do template;
-- Após concluir o teste, envie o link do seu repositório para a equipe técnica responsável pela avaliação
+## 🚀 Requisitos
+
+- Node.js 18+
+- NPM 9+ ou Yarn
+- PHP 8.1+ (XAMPP ou nativo)
+- Composer 2+
+- Git (opcional)
+
+---
+
+## ⚙️ Como Rodar o Projeto
+
+### 🔹 Backend (Laravel)
+
+```bash
+cd backend
+
+# Instalar dependências
+composer install
+
+# Criar arquivo .env
+copy .env.example .env
+# ou crie manualmente com o conteúdo:
+# DB_CONNECTION=sqlite
+# DB_DATABASE=storage/database.sqlite
+
+# Criar banco SQLite
+mkdir storage
+type nul > storage/database.sqlite  # No Windows
+# ou
+touch storage/database.sqlite       # No Linux/macOS
+
+# Rodar migrations
+php artisan migrate
+
+# Subir servidor local
+php artisan serve
+# => http://localhost:8000
+```
+
+> ⚠️ A API está acessível em `/api/tarefas`
+
+---
+
+### 🔹 Frontend (Angular)
+
+```bash
+cd frontend
+
+# Instalar dependências
+npm install
+
+# Rodar servidor Angular
+ng serve
+
+# => http://localhost:4200
+```
+
+---
+
+## 🔗 Comunicação Front ↔ Back
+
+- O Angular faz requisições para `http://localhost:8000/api/tarefas`
+- O backend está com CORS habilitado apenas para `http://localhost:4200`
+
+---
+
+## 📡 API Endpoints
+
+| Método | Rota                     | Descrição               |
+|--------|--------------------------|-------------------------|
+| GET    | `/api/tarefas`           | Listar tarefas          |
+| POST   | `/api/tarefas`           | Criar nova tarefa       |
+| DELETE | `/api/tarefas/{id}`      | Deletar tarefa por ID   |
